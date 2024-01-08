@@ -6,9 +6,14 @@ using namespace std;
 
 class Solution
 {
+    int slicing()
+    {
+        
+    }
 public:
     int numberOfArithmeticSlices(vector<int> &nums)
     {
+        
     }
 };
 
