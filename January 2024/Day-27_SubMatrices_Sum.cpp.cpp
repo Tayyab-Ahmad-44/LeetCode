@@ -43,12 +43,6 @@ public:
     }
 };
 
-int main()
-{
-
-    return 0;
-}
-
 /*
 
 1074. Number of Submatrices That Sum to Target
