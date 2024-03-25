@@ -16,7 +16,20 @@ class Solution:
         """
 
         #! O(n) time and O(1) space
-        return set(range(1, len(nums) + 1)) - set(nums)
+        # mark all the indexes negative based on the nums given in array, then you 
+        # will be left with the positive indxes means that they are not in the array
+        # so append it to the answer
+        
+        for num in nums:
+            i = abs(num) - 1
+            nums[i] = -1 * abs(nums[i])
+
+        ans = []
+        for i in range(len(nums)):
+            if nums[i] > 0:
+                ans.append(i + 1)
+
+        return ans
 """
 448. Find All Numbers Disappeared in an Array
 Easy
