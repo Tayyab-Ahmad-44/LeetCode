@@ -1,37 +1,53 @@
 from typing import List
 
+# class Solution:
+#     def maxSubarrayLength(self, nums: List[int], k: int) -> int:
+#         ans = 0
+
+#         count = 0
+
+#         left = right = 0
+
+#         freq = {}
+
+#         for right in range(len(nums)):
+#             freq[nums[right]] = freq.get(nums[right], 0) + 1
+
+#             if freq[nums[right]] > k:
+#                 freq[nums[left]] -= 1
+#                 left += 1
+
+#                 for i in range(left, right):
+#                     if freq[nums[i]] > k:
+#                         while freq[nums[left]] <= k:
+#                             freq[nums[left]] -= 1
+#                             left += 1
+#                         while freq[nums[left]] > k:
+#                             freq[nums[left]] -= 1
+#                             left += 1
+
+#                     i = left
+                
+#             ans = max(ans, right - left + 1)
+
+#         return ans
+    
 class Solution:
     def maxSubarrayLength(self, nums: List[int], k: int) -> int:
+        l = 0
         ans = 0
+        count = defaultdict(int)
 
-        count = 0
-
-        left = right = 0
-
-        freq = {}
-
-        for right in range(len(nums)):
-            freq[nums[right]] = freq.get(nums[right], 0) + 1
-
-            if freq[nums[right]] > k:
-                freq[nums[left]] -= 1
-                left += 1
-
-                for i in range(left, right):
-                    if freq[nums[i]] > k:
-                        while freq[nums[left]] <= k:
-                            freq[nums[left]] -= 1
-                            left += 1
-                        while freq[nums[left]] > k:
-                            freq[nums[left]] -= 1
-                            left += 1
-
-                    i = left
-                
-            ans = max(ans, right - left + 1)
-
+        for r in range(len(nums)):
+            count[nums[r]] += 1
+            
+            while count[nums[r]] > k:
+                count[nums[l]] -= 1
+                l += 1
+            
+            ans = max(ans, r-l+1)
+        
         return ans
-    
     
 """
 2958. Length of Longest Subarray With at Most K Frequency
