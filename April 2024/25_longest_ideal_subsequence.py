@@ -11,7 +11,7 @@ class Solution:
                 ans = len(myStr)
 
         return ans
-s
+
 s = Solution()
 
 print(s.longestIdealString("abcd", 2))
