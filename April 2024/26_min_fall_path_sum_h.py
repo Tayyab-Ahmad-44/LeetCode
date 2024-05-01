@@ -67,7 +67,7 @@ class Solution:
                 two_smallest.sort()
             
             return two_smallest 
-        
+
         N = len(grid)
         first_row = [(val, idx) for idx, val in enumerate(grid[0])]
         
