@@ -28,7 +28,7 @@ Example 2:
 Input: details = ["1313579440F2036","2921522980M5644"]
 Output: 0
 Explanation: None of the passengers are older than 60.
- 
+
 Constraints:
 
 1 <= details.length <= 100
